@@ -11,3 +11,14 @@ function reverseString (string) {
     return ""
   return reverseString(string.substring(1)) + string.charAt(0)
 };
+
+// ES6 Solution
+
+function reverseString (string) {
+  reverse = []
+
+  for (let l of string) {
+    reverse = [l, ...reverse]
+  }
+  return reverse.join('')
+}
