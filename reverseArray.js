@@ -14,5 +14,6 @@ function reverseArray(arr) {
     return arr
   let element = arr.shift();
   reverseArray(arr)
-  return arr.push(element)
+  arr.push(element)
+  return arr
 };
