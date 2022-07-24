@@ -24,3 +24,27 @@ const searchRange = (nums, target) => {
   findNode()
   return [min, max]
 }
+
+// binary search solution
+const searchRange = (nums, target) => {
+  let left = 0
+  let right = nums.length
+  let mid
+  const result = [-1, -1]
+  if (!nums.length) return result
+  while (left < right) {
+    mid = parseInt((left + right) / 2)
+    if (nums[mid] >= target) right = mid
+    else left = mid + 1
+  }
+  if (nums[left] === target) result[0] = left
+  left = 0
+  right = nums.length
+  while (left < right) {
+    mid = parseInt((left + right) / 2)
+    if (nums[mid] <= target) left = mid + 1
+    else right = mid
+  }
+  if (nums[right - 1] === target) result[1] = right - 1
+  return result
+}
