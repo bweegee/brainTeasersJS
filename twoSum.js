@@ -16,3 +16,19 @@ var twoSum = function(nums, target) {
         }
     }
 };
+
+
+// O(N) solution
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+const twoSum = (nums, target) => {
+  const map = new Map()
+  for (let i = 0; i < nums.length; i++) {
+    const targetValue = target - nums[i]
+    if (map.has(targetValue)) return [i, map.get(targetValue)]
+    map.set(nums[i], i)
+  }
+}
